@@ -1,6 +1,7 @@
 <head>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Julee&family=Montserrat:wght@500&family=Shadows+Into+Light&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
         .is-hidden {
             display: none;
         }
@@ -38,10 +39,10 @@ if($data){
         </div>
     </div>
     
-    <div class="floatingcontent" style="margin-top: 10px; position: relative; margin-bottom: 8%;">
-        <div class="row">
+    <div class="floatingcontent" style="margin-top: 10px; ">
+        <div class="row bg-light" style=" margin-top: 12%;">
             <div class="col"></div>
-            <div class="col-8 rounded h6-4 opacity-50 bg-dark" style="background-color:black; ">
+            <div class="col-8 rounded h6-4 opacity-50 bg-dark" style="background-color:black; position: relative; margin-top: -8%;">
             <form action="addticket.php" method="post">
                 <div class="row p-4">
                         <div class="col-6 text-white">
@@ -79,32 +80,8 @@ if($data){
                             </button>
 
                             <!-- Modal -->
-                            <?php
-                            include "config.php";
-                            if(isset($_POST['submit']))
-                            {
-                            // Counting No fo skilss
-                            $count = count($_POST["skill"]);
-                            //Getting post values
-                            $skill=$_POST["skill"];	
-                            if($count > 1)
-                            {
-                                for($i=0; $i<$count; $i++)
-                                {
-                                    if(trim($_POST["skill"][$i] != ''))
-                                    {
-                                    $sql =mysqli_query($konek,"INSERT INTO tblskills(skill) VALUES('$skill[$i]')");
-                                    }
-                                }
-                            echo "<script>alert('Skills inserted successfully');</script>";
-                            }
-                            else
-                            {
-                            echo "<script>alert('Please enter skill');</script>";
-                            }
-                            }
-                            ?>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            
+                            <div class="modal fade overflow-auto" style="margin-top: -12%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 <div class="modal-header">
@@ -175,11 +152,29 @@ if($data){
                 
                 </div>
             </form>
-        <div class="col">
-            
+            <div class="col">
+                
+            </div>
+            <div class="row">
+                <div class="col">
+
+                </div>
+                <div class="col-7 mt-5 rounded bg-light d-flex  justify-content-center" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: relative;">
+                    <div class="p-5 text-center" id="about" style=" font-family: 'Mynerve', cursive; font-weight: 600; font-size: 20px;">
+                        <h3>ABOUT US</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate rem quae reprehenderit velit sapiente iusto odit illum quia dolore molestiae earum, harum eligendi corporis. Natus, nam? Cumque quis culpa pariatur.</p>
+                    </div>
+                    
+                </div>
+                <div class="col">
+
+                </div>
         </div>
+        <svg style=" margin-top: -15%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#cccce0" fill-opacity="1" d="M0,288L24,282.7C48,277,96,267,144,240C192,213,240,171,288,181.3C336,192,384,256,432,282.7C480,309,528,299,576,282.7C624,267,672,245,720,208C768,171,816,117,864,90.7C912,64,960,64,1008,90.7C1056,117,1104,171,1152,165.3C1200,160,1248,96,1296,74.7C1344,53,1392,75,1416,85.3L1440,96L1440,320L1416,320C1392,320,1344,320,1296,320C1248,320,1200,320,1152,320C1104,320,1056,320,1008,320C960,320,912,320,864,320C816,320,768,320,720,320C672,320,624,320,576,320C528,320,480,320,432,320C384,320,336,320,288,320C240,320,192,320,144,320C96,320,48,320,24,320L0,320Z"></path></svg>
         </div>
+        
     </div>
+    
 </div>  
 <script>
 const elToggle  = document.querySelector("#toggle");
@@ -190,18 +185,5 @@ elToggle.addEventListener("click", function() {
 });
 </script>
 
-<script>
-$(document).ready(function(){
-	var i=1;
-	$('#add').click(function(){
-	i++;
-	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="skill[]" placeholder="Enter your Skill" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-	});
-	
-$(document).on('click', '.btn_remove', function(){
-var button_id = $(this).attr("id"); 
-$('#row'+button_id+'').remove();
-	});
-});
-</script>
+
 
