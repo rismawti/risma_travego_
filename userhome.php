@@ -70,7 +70,7 @@ echo "<script>alert('Please enter skill');</script>";
         <div class="row bg-light" style=" margin-top: 12%;">
             <div class="col"></div>
             <div class="col-8 rounded h6-4 opacity-50 bg-dark" style="background-color:black; position: relative; margin-top: -8%;">
-            <form action="addticket.php" method="post">
+            <form action="nextpemesananuser1.php" method="post">
                 <div class="row p-4">
                         <div class="col-6 text-white">
                             <div class="row">
