@@ -80,14 +80,13 @@ if($data){
                             </button>
 
                             <!-- Modal -->
-                            
                             <div class="modal fade overflow-auto" style="margin-top: -12%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
                                 <div class="modal-body">
                                 <div class="container">
                                     <h2 align="center">Dynamically Add or Remove input fields in PHP with JQuery</h2><br />
@@ -95,11 +94,15 @@ if($data){
                                 <form name="add_name" id="add_name" method="post">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dynamic_field">
-                                    <tr>
-                                    <td><input type="text" name="skill[]" placeholder="Enter your Skill" class="form-control name_list" /></td>
-                                    <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
-                                    </tr>
-                                    </table>
+                                        <tr>
+                                            <td>
+                                                <input type="text" name="skill[]" placeholder="Enter your Skill" class="form-control name_list" />
+                                            </td>
+                                            <td>
+                                                <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
+                                            </td>
+                                        </tr>
+                                        </table>
                                     <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
                                     </div>
                                 </form>
@@ -176,12 +179,29 @@ if($data){
     </div>
     
 </div>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script>
-const elToggle  = document.querySelector("#toggle");
-const elContent = document.querySelector("#content");
+    const elToggle  = document.querySelector("#toggle");
+    const elContent = document.querySelector("#content");
 
-elToggle.addEventListener("click", function() {
-  elContent.classList.toggle("is-hidden");
+    elToggle.addEventListener("click", function() {
+    elContent.classList.toggle("is-hidden");
+    });
+</script>
+
+<script>
+$(document).ready(function(){
+	var i=1;
+	$('#add').click(function(){
+	i++;
+	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="skill[]" placeholder="Enter your Skill" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+	
+$(document).on('click', '.btn_remove', function(){
+var button_id = $(this).attr("id"); 
+$('#row'+button_id+'').remove();
+	});
 });
 </script>
 
