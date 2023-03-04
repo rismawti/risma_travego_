@@ -16,9 +16,9 @@ include "config.php";
                     <li class="item">
                     <a href="index" class="menu-btn"><span>DASHBOARD</span> </a>
                 </li>
-                <li class="item" id="product">
-                    <a href="#product" class="menu-btn">
-                        <img src="assets/Product" alt=""><span>product <i
+                <li class="item" id="add_ticket">
+                    <a href="ticketaction.php" class="menu-btn">
+                        <span>add_ticket <i
                                 class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                     <div class="sub-menu text-center">

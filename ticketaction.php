@@ -3,7 +3,6 @@ include "config.php";
 include "bot.php";
 if(isset($_POST['addticket'])){
     $id_ticket = $_POST['id_ticket'];
-    $name = $_POST['name'];
     $harga = $_POST['harga'];
     $kelas_penerbangan = ($_POST['kelas_penerbangan']);
     $tanggal_pergi = $_POST['tanggal_pergi'];
@@ -73,11 +72,25 @@ if(isset($_POST['addticket'])){
                                 </select>
                             </div>  
                     </div>
-                    <div class="form-group">
-                                <label for="exampleInputEmail1">stock</label>
-                                <input type="stock" name="stock" class="form-control" id="stock" aria-describedby="emailHelp"
-                                placeholder="....">
-                            </div>
+                    <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="h5">stock</label>
+                            <input type="stock" name="stock" class="form-control" id="stock" aria-describedby="emailHelp"
+                            placeholder="....">
+                        </div>
+                    </div>
+                    <div class="col">
+                    <h5>passenger type</h5>
+                            <div class="mb-3" style="width: 150px;">
+                                <select class="form-select" aria-label="Default select example" name="type_passenger">
+                                    <option value="dewasa">dewasa</option>
+                                    <option value="remaja">remaja</option>
+                                    <option value="anak_anak">anak_anak</option>
+                                </select>
+                            </div>  
+                    </div>
+                    </div>
                     <br>
                     <button type="submit" name="addticket" class="btn btn-primary mt-3">add ticket</button>  
             </form>

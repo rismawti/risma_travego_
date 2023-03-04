@@ -8,10 +8,11 @@
       <th scope="col" name="kelas_penerbangan">kelas_penerbangan</th>
       <th scope="col" name="tanggal_pergi">tanggal_pergi</th>
       <th scope="col" name="tanggal_pulang">tanggal_pulang</th>
-      <th scope="col" name="type_passenger">passenger</th>
+      <th scope="col" name="type_passenger">type passenger</th>
       <th scope="col" name="dari">dari</th>
       <th scope="col" name="menuju">menuju</th>
       <th scope="col" name="stock">stock</th>
+      <th scope="col" name="edit">edit</th>
     </tr>
 </thead>
 
