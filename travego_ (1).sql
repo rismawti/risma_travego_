@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Feb 2023 pada 11.56
+-- Waktu pembuatan: 04 Mar 2023 pada 09.10
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -73,7 +73,7 @@ CREATE TABLE `ticket` (
   `kelas_penerbangan` enum('economy','premium economy','vip','vvip') DEFAULT NULL,
   `tanggal_pergi` date DEFAULT NULL,
   `tanggal_pulang` date DEFAULT NULL,
-  `pasenger` text DEFAULT NULL,
+  `type_pasenger` enum('dewasa','remaja','anak_anak') DEFAULT NULL,
   `dari` enum('jakarta','bandung','aceh') NOT NULL,
   `menuju` enum('bali','buol','sulut','kalut','jepang','australia','new zealand') NOT NULL,
   `stock` int(11) NOT NULL
@@ -83,7 +83,7 @@ CREATE TABLE `ticket` (
 -- Dumping data untuk tabel `ticket`
 --
 
-INSERT INTO `ticket` (`id_ticket`, `name`, `harga`, `kelas_penerbangan`, `tanggal_pergi`, `tanggal_pulang`, `pasenger`, `dari`, `menuju`, `stock`) VALUES
+INSERT INTO `ticket` (`id_ticket`, `name`, `harga`, `kelas_penerbangan`, `tanggal_pergi`, `tanggal_pulang`, `type_pasenger`, `dari`, `menuju`, `stock`) VALUES
 ('3', '', '3.00.000', 'vip', '2023-02-25', NULL, '', 'bandung', 'sulut', 0),
 ('2', '', '2.000.000', 'premium economy', '2023-02-25', NULL, '', 'jakarta', 'new zealand', 0);
 
