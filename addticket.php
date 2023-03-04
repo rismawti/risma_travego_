@@ -1,3 +1,7 @@
+<?php
+include "bot.php";
+include "config.php";
+?>
 <table class="table " border="1">
   <thead>
     <tr>
@@ -28,7 +32,7 @@ while ($tampil = mysqli_fetch_array($ambildata)){
     $no++;
 
 }if($ambildata){
-  header('Location:nextpemesananuser1.php');
+  header('Location:addticket.php');
 }
 
 $konek->close();

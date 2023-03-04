@@ -23,7 +23,34 @@ if($data){
 <br>
 <br>
 <br>
-
+<?php
+$konek = mysqli_connect("localhost", "root", "", "travego_");
+ 
+if(isset($_POST['submit']))
+{
+// Counting No fo skilss
+$count = count($_POST["dewasa"]);
+//Getting post values
+$dewasa=$_POST["dewasa"];
+$remaja=$_POST["remaja"];
+$anak_anak=$_POST["anak_anak"];
+if($count > 1)
+{
+	for($i=0; $i<$count; $i++)
+	{
+		if(trim($_POST["dewasa"],["remaja"],["anak_anak"][$i] != ''))
+		{
+		$sql =mysqli_query($konek,"INSERT INTO tblskills(skill) VALUES('$skill[$i]')");
+		}
+	}
+echo "<script>alert('Skills inserted successfully');</script>";
+}
+else
+{
+echo "<script>alert('Please enter skill');</script>";
+}
+}
+?>
 <div class="ushiro">
     <div class="container">
         <div class="row">
@@ -95,11 +122,26 @@ if($data){
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dynamic_field">
                                         <tr>
+                                            
                                             <td>
-                                                <input type="text" name="skill[]" placeholder="Enter your Skill" class="form-control name_list" />
+                                                <button type="button" name="add" id="add" class="btn btn-success">dewasa</button>
                                             </td>
                                             <td>
-                                                <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
+                                                <button type="button" name="add1" id="add1" class="btn btn-success">remaja </button>
+                                            </td>
+                                            <td>
+                                                <button type="button" name="add2" id="add2" class="btn btn-success">anak-anak</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" name="dewasa[]" placeholder="for Adult" class="form-control name_list" />
+                                            </td>
+                                            <td> 
+                                                <input type="text" name="remaja[]" placeholder="for teenager" class="form-control name_list" />
+                                            </td>
+                                            <td>
+                                                <input type="text" name="anak_anak[]" placeholder="for under 12" class="form-control name_list" />
                                             </td>
                                         </tr>
                                         </table>
@@ -111,7 +153,6 @@ if($data){
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                                 </div>
                             </div>
@@ -195,7 +236,15 @@ $(document).ready(function(){
 	var i=1;
 	$('#add').click(function(){
 	i++;
-	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="skill[]" placeholder="Enter your Skill" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="dewasa[]" placeholder="for dewasa" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+	$('#add1').click(function(){
+	i++;
+	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="remaja[]" placeholder="for remaja" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+	$('#add2').click(function(){
+	i++;
+	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="anak_anak[]" placeholder="for anak-anak" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
 	});
 	
 $(document).on('click', '.btn_remove', function(){
