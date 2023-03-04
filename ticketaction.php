@@ -11,8 +11,8 @@ if(isset($_POST['addticket'])){
     $menuju = $_POST['menuju'];
     $stock = $_POST['stock'];
     
-    $data = $konek->query("INSERT INTO ticket(id_ticket, name, harga, kelas_penerbangan, tanggal_pergi, type_passenger, dari, menuju, stock) 
-    VALUES('$_POST[id_ticket]', '$_POST[name]','$_POST[harga]', '$_POST[kelas_penerbangan]', '$_POST[tanggal_pergi]','$_POST[type_passenger]','$_POST[dari]','$_POST[menuju]', '$_POST[stock]')");
+    $data = $konek->query("INSERT INTO ticket(id_ticket, name, harga, kelas_penerbangan, tanggal_pergi, type_pasenger, dari, menuju, stock) 
+    VALUES('$_POST[id_ticket]', '','$_POST[harga]', '$_POST[kelas_penerbangan]', '$_POST[tanggal_pergi]','$_POST[type_passenger]','$_POST[dari]','$_POST[menuju]', '$_POST[stock]')");
     if($data){
         header('location:ticket.php');
     }else{
