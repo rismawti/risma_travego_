@@ -78,37 +78,27 @@ include "config.php";
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade overflow-auto" style="margin-top: -12%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal fade overflow-auto " style="margin-top: -12%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog bg-dark">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                 <div class="modal-body">
-                                <div class="container">
-                                    <h2 align="center">Dynamically Add or Remove input fields in PHP with JQuery</h2><br />
-                                    <div class="form-group">
-                                <form name="add_name" id="add_name" method="post">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dynamic_field">
-                                        <tr>
-                                            
-                                            <td>
-                                                <button type="button" name="add" id="add" class="btn btn-success">dewasa</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" name="dewasa[]" placeholder="untuk dewasa" class="form-control name_list" />
-                                            </td>
-                                        </tr>
-                                        </table>
-                                    <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
-                                    </div>
-                                </form>
+                                <div class="container" style="padding: 12%;">
+                                    Tipe
+                                    <select name="type[]" class="form-select" aria-label="Default select example">
+                                        <option value="Dewasa">Dewasa</option>
+                                        <option value="Remaja">Remaja</option>
+                                        <option value="Anak-anak">Anak-anak</option> 
+                                    </select>
+                                        <input type='text' placeholder="name" name='name[]'>
+                                        <input type='text' placeholder="age" name='age[]'>
+                                        <input type='text' placeholder="address" name='address[]'>
+                                        <input type='text' placeholder="ticket" name='tiket[]'>    
                                 </div>
-                                </div>
+                                <button class="btn btn-primary" id="add3">Add</button>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -191,28 +181,15 @@ include "config.php";
 </script>
 
 <script>
-$(document).ready(function(){
-	var i=1;
-    var max=3;
-	$('#add').click(function(){
-	i++;
-	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="dewasa[]" placeholder="for dewasa" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-	});
-	$('#add1').click(function(){
-	i++;
-	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="remaja[]" placeholder="for remaja" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-	});
-	$('#add2').click(function(){
-	i++;
-	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="anak_anak[]" placeholder="for anak-anak" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-	});
-	
-$(document).on('click', '.btn_remove', function(){
-var button_id = $(this).attr("id"); 
-$('#row'+button_id+'').remove();
-	});
+$(document).ready(function() {
+    var removeButton = "<button id='remove'>Remove</button>";
+    $('#add3').click(function() {
+        $('div.container:last').after($('div.container:first').clone());
+        $('div.container:last').append(removeButton);
+
+    });
+    $('#remove').live('click', function() {
+        $(this).closest('div.container').remove();
+    });
 });
 </script>
-
-
-

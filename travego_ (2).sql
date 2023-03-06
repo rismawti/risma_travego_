@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Mar 2023 pada 09.10
+-- Waktu pembuatan: 06 Mar 2023 pada 12.56
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -72,7 +72,8 @@ CREATE TABLE `ticket` (
   `harga` text DEFAULT NULL,
   `kelas_penerbangan` enum('economy','premium economy','vip','vvip') DEFAULT NULL,
   `tanggal_pergi` date DEFAULT NULL,
-  `tanggal_pulang` date DEFAULT NULL,
+  `waktu_keberangkatan` time DEFAULT NULL,
+  `waktu_tiba` time NOT NULL,
   `type_pasenger` enum('dewasa','remaja','anak_anak') DEFAULT NULL,
   `dari` enum('jakarta','bandung','aceh') NOT NULL,
   `menuju` enum('bali','buol','sulut','kalut','jepang','australia','new zealand') NOT NULL,
@@ -83,9 +84,8 @@ CREATE TABLE `ticket` (
 -- Dumping data untuk tabel `ticket`
 --
 
-INSERT INTO `ticket` (`id_ticket`, `name`, `harga`, `kelas_penerbangan`, `tanggal_pergi`, `tanggal_pulang`, `type_pasenger`, `dari`, `menuju`, `stock`) VALUES
-('3', '', '3.00.000', 'vip', '2023-02-25', NULL, '', 'bandung', 'sulut', 0),
-('2', '', '2.000.000', 'premium economy', '2023-02-25', NULL, '', 'jakarta', 'new zealand', 0);
+INSERT INTO `ticket` (`id_ticket`, `name`, `harga`, `kelas_penerbangan`, `tanggal_pergi`, `waktu_keberangkatan`, `waktu_tiba`, `type_pasenger`, `dari`, `menuju`, `stock`) VALUES
+('1', 'ticket O-1', '12.000.000', 'premium economy', '2023-03-08', '12:46:00', '18:46:00', 'dewasa', 'jakarta', 'jepang', 12);
 
 -- --------------------------------------------------------
 

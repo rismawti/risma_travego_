@@ -5,14 +5,16 @@ if(isset($_POST['addticket'])){
     $id_ticket = $_POST['id_ticket'];
     $harga = $_POST['harga'];
     $kelas_penerbangan = ($_POST['kelas_penerbangan']);
-    $tanggal_pergi = $_POST['tanggal_pergi'];
-    $type_passenger = $_POST['type_passenger'];
     $dari = $_POST['dari'];
     $menuju = $_POST['menuju'];
+    $tanggal_pergi = $_POST['tanggal_pergi'];
+    $waktu_keberangkatan = $_POST['waktu_keberangkatan'];
+    $waktu_tiba = $_POST['waktu_tiba'];
+    $type_passenger = $_POST['type_passenger'];
     $stock = $_POST['stock'];
     
-    $data = $konek->query("INSERT INTO ticket(id_ticket, name, harga, kelas_penerbangan, tanggal_pergi, type_pasenger, dari, menuju, stock) 
-    VALUES('$_POST[id_ticket]', '','$_POST[harga]', '$_POST[kelas_penerbangan]', '$_POST[tanggal_pergi]','$_POST[type_passenger]','$_POST[dari]','$_POST[menuju]', '$_POST[stock]')");
+    $data = $konek->query("INSERT INTO ticket(id_ticket, name, harga, kelas_penerbangan, tanggal_pergi, type_pasenger, dari, menuju, waktu_keberangkatan, waktu_tiba,  stock) 
+    VALUES('$_POST[id_ticket]', '','$_POST[harga]', '$_POST[kelas_penerbangan]', '$_POST[tanggal_pergi]','$_POST[type_passenger]','$_POST[dari]','$_POST[menuju]', '$_POST[waktu_keberangkatan]', '$_POST[waktu_tiba]', '$_POST[stock]')");
     if($data){
         header('location:ticket.php');
     }else{
@@ -45,18 +47,28 @@ if(isset($_POST['addticket'])){
                     <option value="vip">vip</option>
                     <option value="vvip">vvip</option>
                 </select>
-                <option selected>tanggal pergi</option>
-                <input type="date" name="tanggal_pergi">
                 <div class="row">
-                    <div class="col">
-                    <h3>Dari<img src="icons8-airplane-take-off-30.png" width="30" alt=""> </h3>
-                    <div class="mb-3" style="width: 150px;">
-                        <select class="form-select" aria-label="Default select example" name="dari">
-                            <option value="jakarta">jakarta</option>
-                            <option value="bandung">bandung</option>
-                            <option value="aceh">aceh</option>
-                        </select>
+                    <div class="mb-3 col-4">
+                        <option selected>tanggal pergi</option>
+                        <input type="date" name="tanggal_pergi">
                     </div>
+                    <div class="mb-3 col-4">
+                        <option selected>keberangkatan</option>
+                        <input type="time" name="waktu_keberangkatan">
+                    </div>
+                    <div class="mb-3 col-4">
+                        <option selected>waktu tiba</option>
+                        <input type="time" name="waktu_tiba">
+                    </div> 
+                    <div class="col">
+                        <h3>Dari<img src="icons8-airplane-take-off-30.png" width="30" alt=""> </h3>
+                        <div class="mb-3" style="width: 150px;">
+                            <select class="form-select" aria-label="Default select example" name="dari">
+                                <option value="jakarta">jakarta</option>
+                                <option value="bandung">bandung</option>
+                                <option value="aceh">aceh</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="col">
                         <h3>Menuju <img src="icons8-airplane-landing-30.png" width="30" alt=""></h3>
@@ -93,6 +105,8 @@ if(isset($_POST['addticket'])){
                     </div>
                     <br>
                     <button type="submit" name="addticket" class="btn btn-primary mt-3">add ticket</button>  
+                    <a type="submit" name="" href="ticket.php" class="btn btn-primary mt-3">back</a> 
+                </div> 
             </form>
             </div>
             <br>

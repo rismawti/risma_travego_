@@ -7,7 +7,8 @@
       <th scope="col" name="harga">harga</th>
       <th scope="col" name="kelas_penerbangan">kelas_penerbangan</th>
       <th scope="col" name="tanggal_pergi">tanggal_pergi</th>
-      <th scope="col" name="tanggal_pulang">tanggal_pulang</th>
+      <th scope="col" name="waktu_keberangkatan">waktu keberangkatan</th>
+      <th scope="col" name="waktu_tiba">waktu tiba</th>
       <th scope="col" name="type_passenger">type passenger</th>
       <th scope="col" name="dari">dari</th>
       <th scope="col" name="menuju">menuju</th>
@@ -31,7 +32,8 @@ while ($tampil = mysqli_fetch_array($ambildata)){
         <td>Rp.$tampil[harga]</td>
         <td>$tampil[kelas_penerbangan]</td>
         <td>$tampil[tanggal_pergi]</td>
-        <td>$tampil[tanggal_pulang]</td>
+        <td>$tampil[waktu_keberangkatan]</td>
+        <td>$tampil[waktu_tiba]</td>
         <td>$tampil[type_pasenger]</td>
         <td>$tampil[dari]</td>
         <td>$tampil[menuju]</td>
