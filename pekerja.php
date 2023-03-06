@@ -50,3 +50,7 @@ echo "data telah terhapus";
 echo"<meta http-equiv=refresh content=2;URL='pekerja.php'>";
 }
 ?>
+
+
+
+

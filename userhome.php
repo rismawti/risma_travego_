@@ -13,43 +13,14 @@ include "nav.php";
 include "bot.php";
 include "config.php";
 
-$data = $konek->query("SELECT username, email, no_tlp, alamat FROM users");
-if($data){
-    header("location:userhomeaction.php");
-}else{
-    header("location:userhome.php?pesan=gagal");
-}
+
+
 ?>
 <br>
 <br>
 <br>
 <?php
-$konek = mysqli_connect("localhost", "root", "", "travego_");
- 
-if(isset($_POST['submit']))
-{
-// Counting No fo skilss
-$count = count($_POST["dewasa"]);
-//Getting post values
-$dewasa=$_POST["dewasa"];
-$remaja=$_POST["remaja"];
-$anak_anak=$_POST["anak_anak"];
-if($count > 1)
-{
-	for($i=0; $i<$count; $i++)
-	{
-		if(trim($_POST["dewasa"],["remaja"],["anak_anak"][$i] != ''))
-		{
-		$sql =mysqli_query($konek,"INSERT INTO tblskills(skill) VALUES('$skill[$i]')");
-		}
-	}
-echo "<script>alert('Skills inserted successfully');</script>";
-}
-else
-{
-echo "<script>alert('Please enter skill');</script>";
-}
-}
+
 ?>
 <div class="ushiro">
     <div class="container">
@@ -70,7 +41,7 @@ echo "<script>alert('Please enter skill');</script>";
         <div class="row bg-light" style=" margin-top: 12%;">
             <div class="col"></div>
             <div class="col-8 rounded h6-4 opacity-50 bg-dark" style="background-color:black; position: relative; margin-top: -8%;">
-            <form action="nextpemesananuser1.php" method="post">
+            <form action="userhomeaction.php" method="post">
                 <div class="row p-4">
                         <div class="col-6 text-white">
                             <div class="row">
@@ -126,22 +97,10 @@ echo "<script>alert('Please enter skill');</script>";
                                             <td>
                                                 <button type="button" name="add" id="add" class="btn btn-success">dewasa</button>
                                             </td>
-                                            <td>
-                                                <button type="button" name="add1" id="add1" class="btn btn-success">remaja </button>
-                                            </td>
-                                            <td>
-                                                <button type="button" name="add2" id="add2" class="btn btn-success">anak-anak</button>
-                                            </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="text" name="dewasa[]" placeholder="for Adult" class="form-control name_list" />
-                                            </td>
-                                            <td> 
-                                                <input type="text" name="remaja[]" placeholder="for teenager" class="form-control name_list" />
-                                            </td>
-                                            <td>
-                                                <input type="text" name="anak_anak[]" placeholder="for under 12" class="form-control name_list" />
+                                                <input type="text" name="dewasa[]" placeholder="untuk dewasa" class="form-control name_list" />
                                             </td>
                                         </tr>
                                         </table>
@@ -234,6 +193,7 @@ echo "<script>alert('Please enter skill');</script>";
 <script>
 $(document).ready(function(){
 	var i=1;
+    var max=3;
 	$('#add').click(function(){
 	i++;
 	$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="dewasa[]" placeholder="for dewasa" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');

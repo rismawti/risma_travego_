@@ -20,7 +20,7 @@ $data="SELECT tanggal_pergi, passenger, kelas_penerbangan"
           <a class="nav-link text-white" href="#">Features</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">abouts</a>
+          <a class="nav-link text-white" href="userhome.php" href="#about">abouts</a>
         </li>
       </ul>
       <span class="navbar-text">

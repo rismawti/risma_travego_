@@ -1,24 +1,18 @@
 <?php
 include "config.php";
-include "bot.php";
+if(isset($_POST["search"])){
+    $sql = "SELECT dari, menuju, kelas_penerbangan, tanggal_pergi FROM ticket";
+$result = mysqli_query($konek, $sql);
 
-
-
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+    "dari: " . $row["dari"]. " - menuju: " . $row["menuju"]. " " . $row["kelas_penerbangan"]. " " . $row["tanggal_pergi"]. "<br>";
+  }
+}else {
+    header("location:nextpemesananuser1.php");
+}
+}else{
+    header("location:userhome.php?=pesan-gagal");
+}
 ?>
-<h4>pemesanan</h4>
-<form action="" method="post" style="width: 300px;">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">username</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>

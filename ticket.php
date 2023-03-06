@@ -37,6 +37,7 @@ while ($tampil = mysqli_fetch_array($ambildata)){
         <td>$tampil[menuju]</td>
         <td>$tampil[stock]</td>
         <td><a href='?kode=$tampil[id_ticket]'>hapus</a>
+        <a href='edit.php?kode1=$tampil[id_ticket]'>edit</td>
         </tr>";
 
     $no++;
