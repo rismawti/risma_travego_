@@ -78,7 +78,7 @@ include "config.php";
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade overflow-auto " style="margin-top: -12%;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade overflow-auto mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog bg-dark">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -86,19 +86,22 @@ include "config.php";
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                 <div class="modal-body">
-                                <div class="container" style="padding: 12%;">
-                                    Tipe
-                                    <select name="type[]" class="form-select" aria-label="Default select example">
-                                        <option value="Dewasa">Dewasa</option>
-                                        <option value="Remaja">Remaja</option>
-                                        <option value="Anak-anak">Anak-anak</option> 
-                                    </select>
-                                        <input type='text' placeholder="name" name='name[]'>
-                                        <input type='text' placeholder="age" name='age[]'>
-                                        <input type='text' placeholder="address" name='address[]'>
-                                        <input type='text' placeholder="ticket" name='tiket[]'>    
+                                <div class="container cnt_1">
+                                    <div class="content">
+                                        <select name="type_pasenger[]" class="form-select" aria-label="Default select example">
+                                            <option value="dewasa">dewasa</option>
+                                            <option value="remaja">remaja</option>
+                                            <option value="anak_anak">Anak-anak</option> 
+                                        </select>
+                                        <div class="row d-flex justify-content-center">
+                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="name" name='name[]'>
+                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="age" name='age[]'>
+                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="address" name='address[]'>
+                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="ticket" name='tiket[]'>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button class="btn btn-primary" id="add3">Add</button>
+                                <div class="btn btn-primary" id="add3">Add</div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -184,12 +187,12 @@ include "config.php";
 $(document).ready(function() {
     var removeButton = "<button id='remove'>Remove</button>";
     $('#add3').click(function() {
-        $('div.container:last').after($('div.container:first').clone());
-        $('div.container:last').append(removeButton);
+        $('div.cnt_1:last').after($('div.cnt_1:first').clone());
+        $('div.cnt_1:last').append(removeButton);
 
     });
     $('#remove').live('click', function() {
-        $(this).closest('div.container').remove();
+        $(this).closest('div.cnt_1').remove();
     });
 });
 </script>

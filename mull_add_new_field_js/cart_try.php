@@ -21,25 +21,7 @@ $konek=mysqli_connect("localhost", "root", "", "travego_")
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_array($result)){
         ?>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $row["name"]; ?></h5>
-                    <div class="row">
-                        <h4 class="col-6"><?php echo $row["harga"]; ?></h4>
-                        <h4 class="col-6"><?php echo $row["waktu_keberangkatan"]; ?></h4>
-                        <h4 class="col-6"><?php echo $row["waktu_tiba"]; ?></h4>
-                        <h4 class="col-6"><?php echo $row["kelas_penerbangan"]; ?></h4>
-                    </div>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="card mb-3" style="max-width: 800px;">
             <div class="row ">
                 <div class="col-md-4">
@@ -71,7 +53,21 @@ $konek=mysqli_connect("localhost", "root", "", "travego_")
         }
         ?>
     </div>
+    <button id='add'>Add</button>
 
+    <script>
+        $(document).ready(function() {
+            var removeButton = "<button id='remove'>Remove</button>";
+            $('#add').click(function() {
+                $('div.container:last').after($('div.container:first').clone());
+                $('div.container:last').append(removeButton);
+
+            });
+            $('#remove').live('click', function() {
+                $(this).closest('div.container').remove();
+            });
+        });
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
