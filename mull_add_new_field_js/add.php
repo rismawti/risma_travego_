@@ -5,7 +5,7 @@
 <body>
 <div class='container'>
     Tipe
-    <select name="type[]" >
+    <select name="type" >
   <option value="Dewasa">Dewasa</option>
   <option value="Remaja">Remaja</option>
   <option value="Anak-anak">Anak-anak</option>
@@ -32,4 +32,15 @@ $(document).ready(function() {
         $(this).closest('div.container').remove();
     });
 });
+</script>
+
+<div id="hideButton">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, inventore porro. Amet suscipit sapiente soluta nostrum dolorem atque rerum quibusdam obcaecati quo repellendus, architecto explicabo in maxime. Dolorem, autem eum.
+    <div onclick="removeButton()" class="button1 btn btn-primary">PRESS</div>
+</div>
+<script>
+function removeButton() {
+  var button = document.getElementById("hideButton");
+  button.remove();
+}
 </script>

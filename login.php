@@ -7,7 +7,7 @@ include "config.php";
 $username=$_POST['username'];
 $password=md5($_POST['password']);
 
-$data = $konek->query("select * from users where username='$username' and password='$password'");
+$data = $konek->query("SELECT * from users where username='$username' and password='$password'");
 // $cek = mysqli_num_rows($data);
 
 if($data->num_rows > 0){

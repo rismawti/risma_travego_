@@ -18,11 +18,6 @@ include "bot.php";
   <div class="col-8 text-white">
   <form action="register.php" method="post">
     <div class="form-group">
-      <label for="exampleInputEmail1">userID</label>
-      <input type="userID" name="userID" class="form-control" id="userID" aria-describedby="emailHelp"
-      placeholder="....">
-    </div>
-    <div class="form-group">
       <label for="exampleInputPassword1">username</label>
       <input type="username" name="username" class="form-control" id="username" placeholder="username">
     </div>

@@ -1,4 +1,5 @@
-<head>
+<header>
+<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Julee&family=Montserrat:wght@500&family=Shadows+Into+Light&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
@@ -6,7 +7,7 @@
             display: none;
         }
     </style>
-</head>
+</header>
 
 <?php
 include "nav.php";
@@ -88,17 +89,20 @@ include "config.php";
                                 <div class="modal-body">
                                 <div class="container cnt_1">
                                     <div class="content">
-                                        <select name="type_pasenger[]" class="form-select" aria-label="Default select example">
-                                            <option value="dewasa">dewasa</option>
-                                            <option value="remaja">remaja</option>
-                                            <option value="anak_anak">Anak-anak</option> 
+                                        <select name="type_pasenger" style="width:160px;">
+                                            <?php
+                                            $konek=mysqli_connect("localhost", "root", "", "travego_");
+                                            //query menampilkan nama unit kerja ke dalam combobox
+                                            $query    =mysqli_query($konek, "SELECT * FROM ticket GROUP BY type_pasenger ORDER BY type_pasenger");
+                                            while ($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                            <option value="<?=$data['type_pasenger'];?>"><?php echo $data['type_pasenger'];?></option>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
-                                        <div class="row d-flex justify-content-center">
-                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="name" name='name[]'>
-                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="age" name='age[]'>
-                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="address" name='address[]'>
-                                            <input class="col-5" style="margin: 5px;" type='text' placeholder="ticket" name='tiket[]'>
-                                        </div>
+                                        <input type="submit" value="Pilih">
+                                        <a href="coba2.php">Refresh</a>
                                     </div>
                                 </div>
                                 <div class="btn btn-primary" id="add3">Add</div>

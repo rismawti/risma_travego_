@@ -1,34 +1,4 @@
-<h2>Data Karyawan</h2>
-    <table border="1" cellpadding="4">
-        <tr bgcolor="silver">
-            <th>No</th>
-            <th>name</th>
-            <th>tanggal_pergi</th>
-            <th>waktu keberangkatan</td>
-            <th>waktu tiba</th>
-            <th>type pasenger</th>
-        </tr>
-        <?php
-        $konek=mysqli_connect("localhost", "root", "", "travego_");
-        $no=0;
-        $query =mysqli_query($konek, "SELECT * FROM ticket ORDER BY id_ticket DESC");
-        while($result=mysqli_fetch_array($query)){
-        $no++    
-        ?>
-        <tr>
-            <td><?php echo $no?></td>
-            <td><?php echo $result['name']?></td>
-            <td><?php echo $result['tanggal_pergi']?></td>
-            <td><?php echo $result['waktu_keberangkatan']?></td>
-            <td><?php echo $result['waktu_tiba']?></td>
-            <td><?php echo $result['type_pasenger']?></td>
-            <td><a href="bbb.php?id_ticket=<?=$result['id_ticket']?>">Detail</a></td>
-        </tr>
-        <?php
-        }
-        ?>
-    </table>
-    <?php
+<?php
     if(isset($_GET['id_ticket'])){
         $id_ticket    =$_GET['id_ticket'];
     }
