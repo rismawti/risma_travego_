@@ -47,6 +47,8 @@ while ($tampil = mysqli_fetch_array($ambildata)){
 ?>
 </table>
 <a href="ticketaction.php" class="btn btn-primary">add+</a>
+<a href="admin2.php" class="btn btn-primary">back</a>
+<a href="coba2.php">back to coba2</a>
 <?php
 if(isset($_GET['kode'])){
     mysqli_query($konek, "DELETE FROM ticket WHERE id_ticket='$_GET[kode]'");

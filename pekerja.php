@@ -1,4 +1,7 @@
-<table class="table" border="1">
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+    <table class="table" border="1"  style="width: 200px;">
   <thead>
     <tr>
       <th scope="col">no</th>
@@ -54,3 +57,7 @@ echo"<meta http-equiv=refresh content=2;URL='pekerja.php'>";
 
 
 
+
+    </div>
+  </div>
+</div>

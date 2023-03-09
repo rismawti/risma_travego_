@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Mar 2023 pada 12.56
+-- Waktu pembuatan: 09 Mar 2023 pada 10.45
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -37,7 +37,8 @@ CREATE TABLE `passenger` (
   `TTL` date NOT NULL,
   `no_passport` text NOT NULL,
   `id_pemesanan` int(11) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga` int(11) NOT NULL,
+  `jumlah_ticket` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -57,7 +58,9 @@ CREATE TABLE `pemesanan` (
   `status_pembayaran` text NOT NULL,
   `tgl_pergi` date NOT NULL,
   `tanggal_pulang` date NOT NULL,
-  `email` text NOT NULL
+  `email` text NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `harga_keseluruhan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -69,7 +72,7 @@ CREATE TABLE `pemesanan` (
 CREATE TABLE `ticket` (
   `id_ticket` text DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `harga` text DEFAULT NULL,
+  `harga` int(200) DEFAULT NULL,
   `kelas_penerbangan` enum('economy','premium economy','vip','vvip') DEFAULT NULL,
   `tanggal_pergi` date DEFAULT NULL,
   `waktu_keberangkatan` time DEFAULT NULL,
@@ -85,7 +88,10 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id_ticket`, `name`, `harga`, `kelas_penerbangan`, `tanggal_pergi`, `waktu_keberangkatan`, `waktu_tiba`, `type_pasenger`, `dari`, `menuju`, `stock`) VALUES
-('1', 'ticket O-1', '12.000.000', 'premium economy', '2023-03-08', '12:46:00', '18:46:00', 'dewasa', 'jakarta', 'jepang', 12);
+('1', 'ticket O-1', 12000000, 'economy', '2023-03-11', '10:00:00', '14:00:00', 'dewasa', 'jakarta', 'new zealand', 12),
+('2', 'ticket O-2', 3000, 'economy', '2023-03-10', '10:01:00', '16:01:00', 'dewasa', 'jakarta', 'australia', 12),
+('3', 'ticket O-2', 12000, 'premium economy', '2023-03-11', '16:06:00', '18:06:00', 'remaja', 'jakarta', 'australia', 5),
+('4', 'ticket O-1', 4000, 'premium economy', '2023-03-18', '00:07:00', '18:07:00', 'anak_anak', 'jakarta', 'sulut', 12);
 
 -- --------------------------------------------------------
 
@@ -111,7 +117,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userID`, `username`, `name`, `email`, `password`, `no_tlp`, `alamat`, `picture`, `role`) VALUES
 ('1001', 'risma wati', 'rismaadm1', 'rismaadm1@gmail.com', '08366666', 'd7b76dc39d55fb35114e2feb513d9ee4', '', '01/09 kota bandung', 'admin'),
-('1002', 'siti aeni paujiah', 'aeni_yeodongsaeng', 'aeni@gmail.com', '08344444', '6e60a28384bc05fa5b33cc579d040c56', '', '01/09 kota bandung', 'admin');
+('1002', 'siti aeni paujiah', 'aeni_yeodongsaeng', 'aeni@gmail.com', '08344444', '6e60a28384bc05fa5b33cc579d040c56', '', '01/09 kota bandung', 'admin'),
+('', 'anisa nurlaery arafah', 'anisa_09', 'anisa@gmail.com', 'b75705d7e35e7014521a46b532236ec3', '08366666', '01/09 kota bandung', '', 'user'),
+('', 'risma wati', 'rismauser1', 'risma@gmail.com', 'd8578edf8458ce06fbc5bb76a58c5ca4', '08366666', '01/09 kota bandung', '', 'user');
 
 --
 -- Indexes for dumped tables

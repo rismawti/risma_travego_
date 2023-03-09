@@ -1,4 +1,5 @@
-<table class="table" border="1">
+
+<table class="table" border="1" style="width: 600px;">
   <thead>
     <tr>
       <th scope="col">no</th>
@@ -29,4 +30,4 @@ while ($tampil = mysqli_fetch_array($ambildata)){
 }
 
 ?>
-</table>
+</table>        

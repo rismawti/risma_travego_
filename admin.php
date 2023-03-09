@@ -32,8 +32,7 @@ include "config.php";
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <a href="adminhome.php?halaman=add-ticket" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">add more ticket</a>
-                        <a href="#" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white"></a>
+                        <a href="admin.php?halaman=add-ticket" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">add more ticket</a>
                     </div>
                     </div>
                 </div>
@@ -46,12 +45,21 @@ include "config.php";
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         admin and user
+                        <div class="accordion" id="accordionExample">
+                        <div class="accordion-item bg-dark">
+                            <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                worker and co-worker
+                            </button>
+                            </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body bg-dark">
-                                <a href="pekerja.php" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">admin</a>
+                                <a href="admin.php?halaman=admin" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">admin</a><br>
                             </div>
+                            </div>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body bg-dark">
-                                <a href="user.php" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">user</a>
+                                <a href="admin.php?halaman=user" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">user</a>
                             </div>
                             </div>
                         </div>
@@ -67,7 +75,14 @@ include "config.php";
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
-                        <a href="#" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white"></a>
+                        <a href="admin.php?halaman=add-new-field" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">add new field</a><br>
+                        
+                    </div>
+                    <div class="accordion-body">
+                    <a href="admin.php?halaman=select-ticket" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">select per-type</a><br>
+                    </div>
+                    <div class="accordion-body">
+                    <a href="admin.php?halaman=pemesanan" style="text-decoration: none; font-family: 'Josefin Sans', sans-serif;" class="text-white">pemesanan</a>
                     </div>
                     </div>
                 </div>
@@ -95,36 +110,38 @@ include "config.php";
                 </header>
 
 
-            <div class="ktn text-white"  id="body" style="margin: 2%; margin-top: 11%;">
-                <?php
-                    if(isset($_GET['halaman'])){
-                        $page = $_GET['halaman'];
-
-                        swicth($page) {
-                            case 'add_ticket':
-                                include "ticket.php";
-                                break;
-                            case 'admin':
-                                include "pekerja.php";
-                                break;
-                            case 'user':
-                                include "user.php";
-                                break;
-                            case 'add-new-field':
-                                include "add.php";
-                                break;
-                            case 'select-pertype':
-                                include "coba2.php";
-                                break;
-                            case 'pemesanan':
-                                include "coba2.php";
-                                break;
-                        }
-                    }else{
-                        include "login.php";
+        <div class="ktn text-dark" id="body" style="margin-top: 11%; padding-left: 22px;">
+            <?php
+                if(isset($_GET['halaman'])){
+                    $page = $_GET['halaman'];
+                    switch($page){
+                        case 'add-ticket':
+                            include "ticket.php";
+                            break;
+                        case 'admin':
+                            include "pekerja.php";
+                            break;
+                        case 'user':
+                            include "user.php";
+                            break;
+                        case 'add-new-field':
+                            include "mull_add_new_field_js/add.php";
+                            break;
+                        case 'select-ticket':
+                            include "coba2.php";
+                            break;
+                        case 'pemesanan':
+                            include "mull_add_new_field_js/pemesanan.php";
+                            break;
+                        default:
+                            echo "<center>halaman tidak ditemukan</center>";
+                            break;
                     }
-                ?>
-            </div>  
+                }else{
+                    include "pekerja.php";
+                }
+            ?>
+        </div>  
             </div>
         </div>
     </div>

@@ -87,7 +87,7 @@ include "config.php";
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                 <div class="modal-body">
-                                <div class="container cnt_1">
+                                <div class="container cnt_1" id="dummy">
                                     <div class="content">
                                         <select name="type_pasenger" style="width:160px;">
                                             <?php
@@ -189,14 +189,19 @@ include "config.php";
 
 <script>
 $(document).ready(function() {
-    var removeButton = "<button id='remove'>Remove</button>";
+    var removeButton = "<div class='btn btn-primary' onclick='removeDummy()''>Remove</div>";
     $('#add3').click(function() {
         $('div.cnt_1:last').after($('div.cnt_1:first').clone());
         $('div.cnt_1:last').append(removeButton);
 
     });
-    $('#remove').live('click', function() {
-        $(this).closest('div.cnt_1').remove();
-    });
+    
 });
 </script>
+<script>
+            function removeDummy() {
+            var elem = document.getElementById('dummy');
+            elem.parentNode.removeChild(elem);
+            return false;
+            }
+        </script>
